@@ -1,0 +1,1059 @@
+{
+  "info": {
+    "_postman_id": "d9245951-7fc9-4947-99ae-ab53b8a85f15",
+    "name": "dumyjason api tesing",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54692789",
+    "_collection_link": "https://go.postman.co/collection/54692789-d9245951-7fc9-4947-99ae-ab53b8a85f15?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "authentication",
+      "item": [
+        {
+          "name": "TC Auth 01 valid login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Token generated\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.accessToken).to.exist;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Username verified\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.username).to.exist;\r",
+                  "});\r",
+                  "\r",
+                  "var data = pm.response.json();\r",
+                  "pm.environment.set(\"token\", data.accessToken);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"emilys\",\r\n  \"password\": \"emilyspass\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/auth/login",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC API AUTH 02  invalid login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message exists\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.message).to.exist;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response body not empty\", function () {\r",
+                  "    pm.expect(pm.response.text()).not.empty;\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"emilys\",\r\n  \"password\": \"wrong123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/auth/login",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "products",
+      "item": [
+        {
+          "name": "TC_API_PROD_001  Get All Products",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time less than 2000ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Products returned\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.products.length).to.be.above(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/products",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_PROD_002  Get Product By ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Product ID verified\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.id).to.eql(1);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Product title exists\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.title).to.exist;\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/products/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "products",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_PROD_003  Invalid Product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message present\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.message).to.exist;\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/products/999999",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "products",
+                "999999"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_PROD_004  Search Product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Products found\", function () {\r",
+                  "    let data = pm.response.json();\r",
+                  "    pm.expect(data.products.length).to.be.above(0);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/products/search?q=phone",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "products",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "phone"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_PROD_005  Category Product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Category products returned\", function () {\r",
+                  "    let data = pm.response.json();\r",
+                  "    pm.expect(data.products.length).to.be.above(0);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/products/category/smartphones",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "products",
+                "category",
+                "smartphones"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "categories",
+      "item": [
+        {
+          "name": "TC_API_CAT_001 – Get All Categories",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time less than 2000ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Categories returned\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.length).to.be.above(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/products/categories",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "products",
+                "categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_CAT_002 – Verify Categories Count",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Categories returned\", function () {\r",
+                  "    let data = pm.response.json();\r",
+                  "    pm.expect(data.length).to.be.above(0);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time less than 5000ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/products/categories",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "products",
+                "categories"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "customer",
+      "item": []
+    },
+    {
+      "name": "cart",
+      "item": [
+        {
+          "name": "TC_API_CART_001 – Get Cart Details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Cart ID verified\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.id).to.eql(1);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Products exist in cart\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.products.length).to.be.above(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/carts/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "carts",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_CART_002 – Get All Carts",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Search results returned\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.products.length).to.be.above(0);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time check\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/products/search?q=phone",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "products",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "phone"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_CART_003 – Add Product To Cart",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Cart created\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.products.length).to.be.above(0);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Total exists\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.total).to.exist;\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"userId\": 1,\r\n  \"products\": [\r\n    {\r\n      \"id\": 1,\r\n      \"quantity\": 2\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/carts/add",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "carts",
+                "add"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_CART_004 – Update Cart Quantity",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Cart updated\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.id).to.exist;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Products exist\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.products.length).to.be.above(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"products\": [\r\n    {\r\n      \"id\": 1,\r\n      \"quantity\": 5\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/carts/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "carts",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_CART_005 – Delete Cart",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Deleted cart id exists\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.id).to.exist;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Delete successful\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.isDeleted).to.eql(true);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/carts/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "carts",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "item": [
+        {
+          "name": "TC_API_SEARCH_001 – Search Product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Search results returned\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.products.length).to.be.above(0);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time check\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/products/search?q=phone",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "products",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "phone"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_SEARCH_002 – Search Invalid Product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Products array exists\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.products).to.exist;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time check\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/products/search?q=xyz123",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "products",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "xyz123"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "user profile",
+      "item": [
+        {
+          "name": "TC_API_USER_001 – Get All Users",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Users returned\", function () {\r",
+                  "    let data = pm.response.json();\r",
+                  "    pm.expect(data.users.length).to.be.above(0);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/users",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_USER_002 – Get User By ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"User ID verified\", function () {\r",
+                  "    let data = pm.response.json();\r",
+                  "    pm.expect(data.id).to.eql(1);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Email exists\", function () {\r",
+                  "    let data = pm.response.json();\r",
+                  "    pm.expect(data.email).to.exist;\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/users/1",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_USER_003 – Get Current User Profile",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Username exists\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.username).to.exist;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Email exists\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.email).to.exist;\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/auth/me",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "negative Testing",
+      "item": [
+        {
+          "name": "TC_API_NEG_001 – Invalid Product ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message exists\", function () {\r",
+                  "    let data = pm.response.json();\r",
+                  "    pm.expect(data.message).to.exist;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Body not empty\", function () {\r",
+                  "    pm.expect(pm.response.text()).not.empty;\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/products/999999",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "products",
+                "999999"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_NEG_002 – Blank Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message exists\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.message).to.exist;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Body not empty\", function () {\r",
+                  "    pm.expect(pm.response.text()).not.empty;\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseURL}}/auth/login",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "TC_API_NEG_003 – Invalid Cart ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 404\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message exists\", function () {\r",
+                  "    var data = pm.response.json();\r",
+                  "    pm.expect(data.message).to.exist;\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response not empty\", function () {\r",
+                  "    pm.expect(pm.response.text()).not.empty;\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/carts/99999",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "carts",
+                "99999"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
