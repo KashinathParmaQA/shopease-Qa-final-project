@@ -1,0 +1,25 @@
+
+
+
+<suite name="AutomationSuite">
+
+    <listeners>
+        <listener class-name="listeners.ListenerClass"/>
+    </listeners>
+
+    <test name="AutomationTests">
+
+        <classes>
+            <class name="tests.HomePageTest"/>
+            <class name="tests.LoginTest"/>
+            <class name="tests.SignupTest"/>
+            <class name="tests.ProductTest"/>
+            <class name="tests.CartTest"/>
+            <class name="tests.ContactUsTest"/>
+            <class name="tests.CheckoutTest"/>
+            <class name="tests.AccountTest"/>
+        </classes>
+
+    </test>
+
+</suite>

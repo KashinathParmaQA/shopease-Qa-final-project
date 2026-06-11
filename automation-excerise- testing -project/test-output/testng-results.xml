@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="15" passed="15" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-06-09T23:50:31 IST" name="AutomationSuite" finished-at="2026-06-09T23:54:10 IST" duration-ms="219289">
+    <groups>
+    </groups>
+    <test started-at="2026-06-09T23:50:31 IST" name="AutomationTests" finished-at="2026-06-09T23:54:10 IST" duration-ms="219289">
+      <class name="tests.LoginTest">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.LoginTest@4149c063]" started-at="2026-06-09T23:50:43 IST" name="openBrowser" finished-at="2026-06-09T23:50:47 IST" duration-ms="3955" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="invalidLoginTest()[pri:0, instance:tests.LoginTest@4149c063]" started-at="2026-06-09T23:50:47 IST" name="invalidLoginTest" finished-at="2026-06-09T23:50:51 IST" duration-ms="4147" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidLoginTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.LoginTest@4149c063]" started-at="2026-06-09T23:50:51 IST" name="closeBrowser" finished-at="2026-06-09T23:50:52 IST" duration-ms="272" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.LoginTest@4149c063]" started-at="2026-06-09T23:50:52 IST" name="openBrowser" finished-at="2026-06-09T23:50:57 IST" duration-ms="5146" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="logoutTest()[pri:0, instance:tests.LoginTest@4149c063]" started-at="2026-06-09T23:50:57 IST" name="logoutTest" finished-at="2026-06-09T23:51:08 IST" duration-ms="11122" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.LoginTest@4149c063]" started-at="2026-06-09T23:51:08 IST" name="closeBrowser" finished-at="2026-06-09T23:51:08 IST" duration-ms="490" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.LoginTest@4149c063]" started-at="2026-06-09T23:51:08 IST" name="openBrowser" finished-at="2026-06-09T23:51:12 IST" duration-ms="3642" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="validLoginTest()[pri:0, instance:tests.LoginTest@4149c063]" started-at="2026-06-09T23:51:12 IST" name="validLoginTest" finished-at="2026-06-09T23:51:22 IST" duration-ms="10444" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validLoginTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.LoginTest@4149c063]" started-at="2026-06-09T23:51:22 IST" name="closeBrowser" finished-at="2026-06-09T23:51:23 IST" duration-ms="317" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- tests.LoginTest -->
+      <class name="tests.AccountTest">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.AccountTest@17d919b6]" started-at="2026-06-09T23:53:42 IST" name="openBrowser" finished-at="2026-06-09T23:53:56 IST" duration-ms="14550" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="verifyAccountPageTest()[pri:0, instance:tests.AccountTest@17d919b6]" started-at="2026-06-09T23:53:56 IST" name="verifyAccountPageTest" finished-at="2026-06-09T23:54:10 IST" duration-ms="13951" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAccountPageTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.AccountTest@17d919b6]" started-at="2026-06-09T23:54:10 IST" name="closeBrowser" finished-at="2026-06-09T23:54:10 IST" duration-ms="302" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- tests.AccountTest -->
+      <class name="tests.HomePageTest">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.HomePageTest@78452606]" started-at="2026-06-09T23:50:31 IST" name="openBrowser" finished-at="2026-06-09T23:50:42 IST" duration-ms="10526" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="verifySignupButton()[pri:0, instance:tests.HomePageTest@78452606]" started-at="2026-06-09T23:50:42 IST" name="verifySignupButton" finished-at="2026-06-09T23:50:43 IST" duration-ms="1101" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySignupButton -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.HomePageTest@78452606]" started-at="2026-06-09T23:50:43 IST" name="closeBrowser" finished-at="2026-06-09T23:50:43 IST" duration-ms="351" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- tests.HomePageTest -->
+      <class name="tests.SignupTest">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.SignupTest@9cb8225]" started-at="2026-06-09T23:51:23 IST" name="openBrowser" finished-at="2026-06-09T23:51:28 IST" duration-ms="4939" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="signupPageOpenTest()[pri:0, instance:tests.SignupTest@9cb8225]" started-at="2026-06-09T23:51:28 IST" name="signupPageOpenTest" finished-at="2026-06-09T23:51:29 IST" duration-ms="1029" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signupPageOpenTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.SignupTest@9cb8225]" started-at="2026-06-09T23:51:29 IST" name="closeBrowser" finished-at="2026-06-09T23:51:29 IST" duration-ms="370" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.SignupTest@9cb8225]" started-at="2026-06-09T23:51:29 IST" name="openBrowser" finished-at="2026-06-09T23:51:40 IST" duration-ms="11189" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="signupTest()[pri:0, instance:tests.SignupTest@9cb8225]" started-at="2026-06-09T23:51:40 IST" name="signupTest" finished-at="2026-06-09T23:51:44 IST" duration-ms="3936" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- signupTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.SignupTest@9cb8225]" started-at="2026-06-09T23:51:44 IST" name="closeBrowser" finished-at="2026-06-09T23:51:45 IST" duration-ms="322" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- tests.SignupTest -->
+      <class name="tests.CartTest">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.CartTest@38af9828]" started-at="2026-06-09T23:52:49 IST" name="openBrowser" finished-at="2026-06-09T23:52:58 IST" duration-ms="9141" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="addProductToCartTest()[pri:0, instance:tests.CartTest@38af9828]" started-at="2026-06-09T23:52:58 IST" name="addProductToCartTest" finished-at="2026-06-09T23:53:01 IST" duration-ms="3259" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addProductToCartTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.CartTest@38af9828]" started-at="2026-06-09T23:53:01 IST" name="closeBrowser" finished-at="2026-06-09T23:53:01 IST" duration-ms="366" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.CartTest@38af9828]" started-at="2026-06-09T23:53:01 IST" name="openBrowser" finished-at="2026-06-09T23:53:07 IST" duration-ms="5584" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="removeProductFromCartTest()[pri:0, instance:tests.CartTest@38af9828]" started-at="2026-06-09T23:53:07 IST" name="removeProductFromCartTest" finished-at="2026-06-09T23:53:17 IST" duration-ms="10195" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- removeProductFromCartTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.CartTest@38af9828]" started-at="2026-06-09T23:53:17 IST" name="closeBrowser" finished-at="2026-06-09T23:53:18 IST" duration-ms="419" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- tests.CartTest -->
+      <class name="tests.ProductTest">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.ProductTest@76b07f29]" started-at="2026-06-09T23:51:45 IST" name="openBrowser" finished-at="2026-06-09T23:51:50 IST" duration-ms="4934" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="addToCartTest()[pri:0, instance:tests.ProductTest@76b07f29]" started-at="2026-06-09T23:51:50 IST" name="addToCartTest" finished-at="2026-06-09T23:51:53 IST" duration-ms="3280" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addToCartTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.ProductTest@76b07f29]" started-at="2026-06-09T23:51:53 IST" name="closeBrowser" finished-at="2026-06-09T23:51:53 IST" duration-ms="349" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.ProductTest@76b07f29]" started-at="2026-06-09T23:51:53 IST" name="openBrowser" finished-at="2026-06-09T23:51:58 IST" duration-ms="4942" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="invalidSearchProductTest()[pri:0, instance:tests.ProductTest@76b07f29]" started-at="2026-06-09T23:51:58 IST" name="invalidSearchProductTest" finished-at="2026-06-09T23:52:01 IST" duration-ms="3144" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidSearchProductTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.ProductTest@76b07f29]" started-at="2026-06-09T23:52:01 IST" name="closeBrowser" finished-at="2026-06-09T23:52:02 IST" duration-ms="335" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.ProductTest@76b07f29]" started-at="2026-06-09T23:52:02 IST" name="openBrowser" finished-at="2026-06-09T23:52:12 IST" duration-ms="10171" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="openProductsTest()[pri:0, instance:tests.ProductTest@76b07f29]" started-at="2026-06-09T23:52:12 IST" name="openProductsTest" finished-at="2026-06-09T23:52:15 IST" duration-ms="3173" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openProductsTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.ProductTest@76b07f29]" started-at="2026-06-09T23:52:15 IST" name="closeBrowser" finished-at="2026-06-09T23:52:15 IST" duration-ms="309" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.ProductTest@76b07f29]" started-at="2026-06-09T23:52:15 IST" name="openBrowser" finished-at="2026-06-09T23:52:45 IST" duration-ms="29834" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="searchProductTest()[pri:0, instance:tests.ProductTest@76b07f29]" started-at="2026-06-09T23:52:45 IST" name="searchProductTest" finished-at="2026-06-09T23:52:48 IST" duration-ms="3219" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchProductTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.ProductTest@76b07f29]" started-at="2026-06-09T23:52:48 IST" name="closeBrowser" finished-at="2026-06-09T23:52:49 IST" duration-ms="348" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- tests.ProductTest -->
+      <class name="tests.ContactUsTest">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.ContactUsTest@376a0d86]" started-at="2026-06-09T23:53:18 IST" name="openBrowser" finished-at="2026-06-09T23:53:23 IST" duration-ms="5028" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="contactUsTest()[pri:0, instance:tests.ContactUsTest@376a0d86]" started-at="2026-06-09T23:53:23 IST" name="contactUsTest" finished-at="2026-06-09T23:53:26 IST" duration-ms="3394" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- contactUsTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.ContactUsTest@376a0d86]" started-at="2026-06-09T23:53:26 IST" name="closeBrowser" finished-at="2026-06-09T23:53:26 IST" duration-ms="285" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- tests.ContactUsTest -->
+      <class name="tests.CheckoutTest">
+        <test-method is-config="true" signature="openBrowser()[pri:0, instance:tests.CheckoutTest@62656be4]" started-at="2026-06-09T23:53:26 IST" name="openBrowser" finished-at="2026-06-09T23:53:30 IST" duration-ms="3723" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openBrowser -->
+        <test-method signature="checkoutTest()[pri:0, instance:tests.CheckoutTest@62656be4]" started-at="2026-06-09T23:53:30 IST" name="checkoutTest" finished-at="2026-06-09T23:53:41 IST" duration-ms="11314" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkoutTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:tests.CheckoutTest@62656be4]" started-at="2026-06-09T23:53:41 IST" name="closeBrowser" finished-at="2026-06-09T23:53:42 IST" duration-ms="289" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- tests.CheckoutTest -->
+    </test> <!-- AutomationTests -->
+  </suite> <!-- AutomationSuite -->
+</testng-results>
