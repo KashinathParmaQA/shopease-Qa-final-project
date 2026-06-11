@@ -27,7 +27,7 @@ steps:
       key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
 
   - name: Run Selenium TestNG Tests
-    working-directory: automation-excerise- testing -project
+    working-directory: "automation-excerise- testing -project"
     run: mvn clean test
 
   - name: Upload Reports
